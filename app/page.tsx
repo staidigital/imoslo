@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
 import MediaWindow from "@/components/MediaWindow";
 
 const interests = [
@@ -47,22 +48,22 @@ const tracks = [
 
 const reasons = [
   {
-    icon: "⚡",
+    icon: "build" as IconName,
     title: "Praktisk fra dag én",
     text: "Du lærer ved å bygge, redigere og feilsøke – ikke bare ved å lese.",
   },
   {
-    icon: "💸",
+    icon: "coins" as IconName,
     title: "Lønn i læretiden",
     text: "Som lærling er du ansatt i en bedrift og får lønn mens du lærer.",
   },
   {
-    icon: "🎓",
+    icon: "certificate" as IconName,
     title: "Fagbrev",
     text: "Etter læretiden tar du fagprøven og får et fagbrev som er etterspurt i arbeidslivet.",
   },
   {
-    icon: "🧭",
+    icon: "paths" as IconName,
     title: "Mange veier videre",
     text: "Jobb, fagskole eller studier – IM stenger ingen dører.",
   },
@@ -279,9 +280,7 @@ export default function Home() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map((r) => (
             <div key={r.title} className="card p-6">
-              <span className="text-3xl" aria-hidden="true">
-                {r.icon}
-              </span>
+              <Icon name={r.icon} />
               <h3 className="mt-4 font-display text-lg font-bold">{r.title}</h3>
               <p className="mt-2 text-sm text-zinc-400">{r.text}</p>
             </div>
