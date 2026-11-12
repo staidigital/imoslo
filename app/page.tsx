@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MediaWindow from "@/components/MediaWindow";
 
 const interests = [
   "Programmering",
@@ -120,8 +121,9 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="relative">
           {/* Terminal */}
-          <div className="relative animate-float">
+          <div className="relative w-[92%] animate-float">
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-cyan-400/40 via-violet-500/30 to-fuchsia-500/40 blur-xl" />
             <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-ink-900/90 shadow-2xl">
               <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
@@ -132,7 +134,7 @@ export default function Home() {
                   ~/imoslo
                 </span>
               </div>
-              <div className="space-y-2 p-5 font-mono text-[13px] leading-relaxed sm:text-sm">
+              <div className="space-y-2 p-5 pb-16 font-mono text-[13px] leading-relaxed sm:pb-20 sm:text-sm">
                 {terminalLines.map((l, i) => (
                   <p
                     key={i}
@@ -148,6 +150,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Kamerasøker + tidslinje (medieproduksjon) */}
+          <MediaWindow />
           </div>
         </div>
       </section>
