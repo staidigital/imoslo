@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/Icon";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
@@ -10,22 +11,22 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    icon: "🎯",
+    icon: "recruit" as IconName,
     title: "Rekrutter egen kompetanse",
     text: "Lærlingen lærer seg deres verktøy, rutiner og kultur. Mange lærebedrifter ansetter lærlingen etter fagprøven.",
   },
   {
-    icon: "💰",
+    icon: "banknote" as IconName,
     title: "Lærlingtilskudd",
     text: "Godkjente lærebedrifter får tilskudd fra fylkeskommunen for opplæringen de gir i læretiden.",
   },
   {
-    icon: "🚀",
+    icon: "growth" as IconName,
     title: "Faglig utvikling",
     text: "Å veilede en lærling gir egne ansatte erfaring med opplæring og ledelse, og nye perspektiver inn i teamet.",
   },
   {
-    icon: "🤝",
+    icon: "community" as IconName,
     title: "Samfunnsansvar",
     text: "Dere bidrar til å utdanne fremtidens fagarbeidere innen IT og medieproduksjon – fag det er stor etterspørsel etter.",
   },
@@ -127,9 +128,7 @@ export default function BliLaerebedrift() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b) => (
               <div key={b.title} className="card p-6">
-                <span className="text-3xl" aria-hidden="true">
-                  {b.icon}
-                </span>
+                <Icon name={b.icon} />
                 <h3 className="mt-4 font-display text-lg font-bold">
                   {b.title}
                 </h3>

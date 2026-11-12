@@ -35,11 +35,16 @@ const config: Config = {
           "0%, 49%": { opacity: "1" },
           "50%, 100%": { opacity: "0" },
         },
+        playhead: {
+          from: { left: "0%" },
+          to: { left: "100%" },
+        },
       },
       animation: {
         marquee: "marquee 40s linear infinite",
         float: "float 6s ease-in-out infinite",
         blink: "blink 1s step-end infinite",
+        playhead: "playhead 8s linear infinite",
       },
     },
   },

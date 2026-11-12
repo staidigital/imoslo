@@ -8,7 +8,7 @@ export const navLinks = [
   { href: "/om-programmet", label: "Om programmet" },
   { href: "/fag", label: "Fag" },
   { href: "/skoler", label: "Skoler" },
-  { href: "/videre-utdanning", label: "Videre utdanning" },
+  { href: "/videre-utdanning", label: "Veien videre" },
   { href: "/bli-laerebedrift", label: "Bli lærebedrift" },
 ];
 
