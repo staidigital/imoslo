@@ -39,7 +39,13 @@ const requirements = [
   "Forsvarlige arbeidsforhold og nødvendig utstyr for opplæringen.",
 ];
 
-const steps = [
+type Step = {
+  title: string;
+  text: string;
+  link?: { href: string; label: string };
+};
+
+const steps: Step[] = [
   {
     title: "Sjekk læreplanen",
     text: "Se på læreplanen for faget dere vil lære opp i, og vurder hvilke kompetansemål dere kan dekke gjennom egne arbeidsoppgaver.",
@@ -55,6 +61,10 @@ const steps = [
   {
     title: "Søk om godkjenning",
     text: "Send søknad om godkjenning som lærebedrift til fylkeskommunen – i Oslo er det Oslo kommune ved Utdanningsetaten som behandler søknaden.",
+    link: {
+      href: "https://www.oslo.kommune.no/skole-og-utdanning/opplaring-i-bedrift/larebedrift/bli-larebedrift/sok-om-godkjenning/",
+      label: "Søk om godkjenning hos Oslo kommune",
+    },
   },
   {
     title: "Godkjenning",
@@ -113,7 +123,7 @@ export default function BliLaerebedrift() {
           <p>
             Etter Vg2 informasjonsteknologi og medieproduksjon kan elevene gå
             ut i lære i blant annet IT-utviklerfaget og
-            informasjonsteknologifaget, eller i lærefag innen medieproduksjon.
+            IT-driftsfaget, eller i lærefag innen medieproduksjon.
           </p>
         </div>
       </section>
@@ -179,6 +189,18 @@ export default function BliLaerebedrift() {
                 <div className="pt-1.5">
                   <h3 className="font-display text-lg font-bold">{s.title}</h3>
                   <p className="mt-1 text-zinc-400">{s.text}</p>
+                  {s.link && (
+                    <a
+                      href={s.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-2 font-mono text-sm text-cyan-300 transition hover:text-cyan-200"
+                    >
+                      {s.link.label}
+                      <span aria-hidden>↗</span>
+                      <span className="sr-only">(åpnes i ny fane)</span>
+                    </a>
+                  )}
                 </div>
               </li>
             ))}
