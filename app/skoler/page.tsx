@@ -113,7 +113,7 @@ export default function Skoler() {
       {/* ───────── Før du søker ───────── */}
       <section className="border-t border-white/10 bg-ink-900/60">
         <div className="container-page py-16 sm:py-20">
-          <p className="eyebrow mb-4">// Før du søker</p>
+          <p className="eyebrow mb-4">{"// Før du søker"}</p>
           <h2 className="max-w-2xl font-display text-2xl font-bold sm:text-3xl">
             Slik finner du skolen som passer deg
           </h2>
