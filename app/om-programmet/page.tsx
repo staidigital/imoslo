@@ -355,7 +355,7 @@ export default function OmProgrammet() {
               </p>
             </div>
             <Link href="/videre-utdanning" className="btn-ghost shrink-0">
-              Videre utdanning →
+              Veien videre →
             </Link>
           </div>
         </div>
