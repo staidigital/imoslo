@@ -13,6 +13,8 @@ type School = {
   /** Kort navn brukt i monogrammet og lenketeksten. */
   short: string;
   url: string;
+  /** Har skolen også det treårige løpet med studiekompetanse? */
+  studyTrack: boolean;
 };
 
 /**
@@ -20,10 +22,10 @@ type School = {
  * Listen sorteres alfabetisk i koden, og alle skolene vises med samme kort.
  */
 const schools: School[] = [
-  { name: "Bjørnholt videregående skole", short: "Bjørnholt", url: "https://bjornholt.vgs.no/" },
-  { name: "Elvebakken videregående skole", short: "Elvebakken", url: "https://elvebakken.vgs.no/" },
-  { name: "Fyrstikkalleen skole", short: "Fyrstikkalleen", url: "https://f21.vgs.no/" },
-  { name: "Kuben videregående skole", short: "Kuben", url: "https://kuben.vgs.no/" },
+  { name: "Bjørnholt videregående skole", short: "Bjørnholt", url: "https://bjornholt.vgs.no/", studyTrack: false },
+  { name: "Elvebakken videregående skole", short: "Elvebakken", url: "https://elvebakken.vgs.no/", studyTrack: true },
+  { name: "Fyrstikkalleen skole", short: "Fyrstikkalleen", url: "https://f21.vgs.no/", studyTrack: false },
+  { name: "Kuben videregående skole", short: "Kuben", url: "https://kuben.vgs.no/", studyTrack: true },
 ].sort((a, b) => a.short.localeCompare(b.short, "nb"));
 
 const tips = [
@@ -56,7 +58,11 @@ export default function Skoler() {
         eyebrow="// Skoler"
         title="Skoler i Oslo"
         lead="Informasjonsteknologi og medieproduksjon tilbys på disse offentlige videregående skolene i Oslo."
-      />
+      >
+        <Link href="/om-programmet" className="btn-ghost">
+          Om de to løpene
+        </Link>
+      </PageHero>
 
       {/* ───────── Skolene ───────── */}
       <section className="container-page py-16 sm:py-20" aria-label="Skolene">
@@ -75,11 +81,25 @@ export default function Skoler() {
                 </h2>
               </div>
 
+              <div className="mt-6 flex-1 border-t border-white/10 pt-6">
+                <p className="font-mono text-xs uppercase tracking-wider text-zinc-500">Løp</p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  <li className="rounded-full border border-white/15 px-3 py-1 text-xs text-zinc-200">
+                    Yrkesfaglig
+                  </li>
+                  {school.studyTrack && (
+                    <li className="rounded-full border border-white/15 px-3 py-1 text-xs text-zinc-200">
+                      Studieforberedende
+                    </li>
+                  )}
+                </ul>
+              </div>
+
               <a
                 href={school.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 self-start border-t border-white/10 pt-6 font-mono text-sm text-cyan-300 transition hover:text-cyan-200"
+                className="mt-6 inline-flex items-center gap-2 self-start font-mono text-sm text-cyan-300 transition hover:text-cyan-200"
               >
                 Besøk {school.short}s nettside
                 <span aria-hidden className="transition group-hover:translate-x-0.5">↗</span>
